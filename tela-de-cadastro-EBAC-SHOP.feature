@@ -1,23 +1,21 @@
 #language: pt
 
-Funcionalidade: Cadastro na EBAC-SHOP
-Como cliente da EBAC-SHOP
-Quero concluir meu cadastro
-Para finalizar minha compra
+Funcionalidade: Tela de cadastro 
+Como cliente ebac-shop
+Quero fazer concluir meu cadastro
+Para finalizar minhas compras
 
-Contexto:Dado que estou na página de cadastro da EBAC-SHOP
+Contexto: dado que eu acesse a tela de cadastro da Ebac-shop
 
-Cenário: Conclusão do cadastro de cliente
-Quando preencho os campos do formulário de cadastro
-E clico no botão "Concluir Cadastro"
-Então  deve exibir uma mensagem de cadastro concluido
+cenario: Cadastro com todos os dados obrigatórios
+Quando eu preencher todos os dados obrigatórios
+Então poderei acessar a página de finalização de compra
 
-Cenário: Falha no cadastro
-Quando não preencho os campos do formulário
-E clico no botão "Login"
-Então recebo uma mensagem de erro informando que o cadastro falhou
+cenario:e-mail com formato invalido nao e permitido
+Quando eu digitar "welissom155gmail.com" no campo de e-mail
+Então será exibida a mensagem "E-mail no formato incorreto"
 
-Cenário: Falha no cadastro
-Quando não preencho o campo de email do formulário
-E clico no botão "Login"
-Então recebo uma mensagem de erro informando que o cadastro falhou
+Cenário: Alerta ao tentar cadastrar com campos obrigatórios vazios 
+Quando eu não preencher todos os campos obrigatórios
+Então deve ser exibida uma mensagem "Campo obrigatório"
+
