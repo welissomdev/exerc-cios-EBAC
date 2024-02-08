@@ -1,6 +1,7 @@
       #language: pt
 
-      Funcionalidade: Configurar e adicionar produtos ao carrinho na EBAC-SHOP
+      Funcionalidade: Configurar produto
+
       Como cliente da EBAC-SHOP
       Quero configurar meu produto de acordo com meu tamanho e gosto
       E escolher a quantidade
@@ -9,34 +10,15 @@
       Contexto:
       Dado que eu esteja na página do produto na EBAC-SHOP
 
-      Cenário: Configurar um produto e adicionar ao carrinho
-      Quando eu seleciono o tamanho e as preferências do meu produto
-      E eu escolho a quantidade de 10 unidades do produto
-      Então eu adiciono o produto ao carrinho
+      Cenário: Seleção de cor, tamanho e quantidade é obrigatória
+      Quando eu configurar o tamanho, cor e quantidade
+      Então poderei adicionar o produto no carrinho de compras
 
-      Cenário: Remover um produto do carrinho
-      Quando eu visualizo meu carrinho
-      E eu removo um produto do carrinho
-      Então o produto é removido do meu carrinho
+      Cenário: Limpar seleções retorna ao estado original
+      Quando eu clicar no botão "Limpar"
+      Então a configuração selecionada será removida
 
-      Cenário: Alterar a quantidade de um produto no carrinho
-      Quando eu visualizo meu carrinho
-      E eu altero a quantidade de um produto
-      Então a quantidade do produto no meu carrinho é atualizada
-
-      Cenário: Configurar um produto e adicionar uma quantidade maior ao carrinho
-      Quando eu seleciono o tamanho e as preferências do meu produto
-      E eu escolho a quantidade de 11 unidades do produto
-      Então eu adiciono o produto ao carrinho
-      E recebo a mensagem de que a quantidade excede o limite permitido
-
-      Esquema do Cenário: Adicionar múltiplos produtos ao carrinho
-      Quando eu adiciono um <produto> ao carrinho
-      E seleciono o <tamanho> do produto
-      E escolho a <cor> do produto
-      Então o produto deve ser adicionado ao carrinho
-
-      | Produto  | Tamanho | cor      |
-      | Produto1 | L       | Vermelho |
-      | Produto2 | M       | Azul     |
-      | Produto3 | XL      | Verde    |
+      Cenário: Limite de 10 produtos por venda
+      Quando eu adicionar um número superior a 10 itens
+      Então deve aparecer a mensagem "Somente 10 produtos por venda"
+   
