@@ -1,36 +1,34 @@
-#language:pt
+            #language: pt
 
-Funcionalidade: Compra de produtos na EBAC-SHOP
-Como cliente da EBAC-SHOP
-Quero configurar meu produto de acordo com meu tamanho e gosto
-E escolher a quantidade
-Para depois inserir no carrinho
+            Como cliente da EBAC-SHOP
+            Quero fazer o login (autenticação) na plataforma  
+            Para visualizar meus pedidos
 
-Contexto:Dado que eu estou na página do produto
+            Contexto:
+            Dado que eu acesse a página de autenticação do portal EBAC
 
-Cenário: Configurando e adicionando um produto ao carrinho
-Quando eu seleciono o tamanho XS e a cor vermelha
-E eu escolho a quantidade de 2 produtos
-Então eu adiciono o produto ao carrinho
-E vejo que o produto foi adicionado ao carrinho com sucesso
+            Cenário:  Autenticação de usuario e senha para acesso a plataforma
+            Quando eu digitar o usuário "joao@ebac.com.br"
+            E a senha "senha@123"
+            Então deve exibir uma mensagem de boas vindas "Olá João "
 
-Cenário: Tentando adicionar um produto esgotado ao carrinho
-Quando eu seleciono o tamanho M e a cor preta de um produto esgotado
-E eu tento adicionar o produto ao carrinho
-Então eu vejo uma mensagem informando que o produto está esgotado
+            Cenário:  Autenticação de usuario e senha para acesso a plataforma
+            Quando eu digitar o usuário "jdkg@ebac.com.br"
+            E a senha "senha@123"
+            Então deve exibir uma mensagem de alerta: "Usuario inexistente"
 
-Cenário: Removendo um produto do carrinho
-Dado que eu tenho um produto no meu carrinho
-Quando eu removo o produto do meu carrinho
-Então eu vejo que o carrinho está vazio
+            Cenário:  Autenticação de usuario e senha para acesso a plataforma
+            Quando eu digitar o usuário "joao@ebac.com.br"
+            E a senha "sdhret"
+            Então deve exibir uma mensagem de alerta: "Usuario ou senha inválidos"
 
-Cenário: Alterando a quantidade de um produto no carrinho
-Dado que eu tenho um produto no meu carrinho
-Quando eu altero a quantidade desse produto para 3
-Então eu vejo que a quantidade do produto no carrinho foi atualizada para 3
+            Esquema do Cenário: Autenticar multiplos usuários
+            Quando eu digitar o <usuario>
+            E a <senha>
+            Então deve exibir a <mensagem> de sucesso
 
-Cenário: Configurando e adicionando um produto ao carrinho
-Quando eu seleciono o tamanho XS e a cor vermelha
-E eu escolho a quantidade de 11 produtos
-Então eu adiciono o produto ao carrinho
-E vejo que o excede a quantidade disponivel
+            Exemplos:
+            | usuario              | senha          | mensagem    |
+            | "joao@ebac.com.br"   | "testes@123"   | "olá João!" |
+            | "maria@ebac.com.br"  | "testes@1234"  | "olá João!" |
+            | "marcos@ebac.com.br" | "testes@12345" | "olá João!" |
